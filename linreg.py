@@ -4,10 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 #%matplotlib inline
 import random
-
 import sys
 
-# m denotes the number of examples here, not the number of features
+
 def gradientDescent(x, y, th, eps, m, iter):
 	xTrans = x.transpose()
 	c=1
@@ -15,14 +14,10 @@ def gradientDescent(x, y, th, eps, m, iter):
 		for i in range(0, iter):
 			h = np.dot(x, th)
 			loss = h - y
-			# avg cost per example (the 2 in 2*m doesn't really matter here.
-			# But to be consistent with the gradient, I include it)
 			c=0
 			cost = np.sum(loss ** 2) / (2 * m)
-			#print("Iteration %d | Cost: %f" % (i, cost))
-			# avg gradient per example
+			#print('Cost:',cost)
 			gradient = np.dot(xTrans, loss) / m
-			# update
 			th = th - eps * gradient
 			c=round(cost,6)
 			#print c
@@ -59,10 +54,6 @@ for num in range(-10,10):     #to iterate between 10 to 20
 #print y
 #print x[5]
 #print y[12]
-#plt.plot(x,y,'kx')
-#plt.show()
-# gen 100 points with a bias of 25 and 10 variance as a bit of noise
-#x, y = genData(20, 25, 10, xx)
 #print x
 #print y
 m, n = np.shape(x)
