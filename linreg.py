@@ -7,11 +7,11 @@ import random
 import sys
 
 
-def gradientDescent(x, y, th, eps, m, iter):
+def gradientDescent(x, y, th, eps, m, iteration):
 	xTrans = x.transpose()
 	c=1
 	while c!=0 :
-		for i in range(0, iter):
+		for i in range(0, iteration):
 			h = np.dot(x, th)
 			loss = h - y
 			c=0
@@ -44,7 +44,7 @@ x = np.zeros(shape=(20, 3))
 y = np.zeros(shape=20)
 #print x
 #print y
-for num in range(-10,10):     #to iterate between 10 to 20
+for num in range(-10,10): 
     x[i][0]=1
     x[i][1]=num
     x[i][2]=num**2
@@ -57,10 +57,10 @@ for num in range(-10,10):     #to iterate between 10 to 20
 #print x
 #print y
 m, n = np.shape(x)
-iter= 5000
+iteration = 5000
 eps = 0.000001
 th = np.ones(n)
-th, eps = gradientDescent(x, y, th, eps, m, iter)
+th, eps = gradientDescent(x, y, th, eps, m, iteration)
 print 'learning rate=',eps
 xx0=th[0]
 xx1=th[1]
@@ -73,7 +73,7 @@ xx = np.zeros(shape=20)
 yy = np.zeros(shape=20)
 #print x
 #print y
-for num in range(-10,10):     #to iterate between 10 to 20
+for num in range(-10,10): 
     xx[j]=num
     yy[j]=(((xx2)*num**2)+((xx1)*num)+xx0)
     j=j+1 
