@@ -29,21 +29,6 @@ def gradientDescent(x, y, th, eps, m, iter):
 		eps=eps+0.00001
 	return th, eps
 
-
-def genData(numPoints, bias, variance, realx):
-    x = np.zeros(shape=(numPoints, 2))
-    #y = np.zeros(shape=numPoints)
-    #print x
-    #print y
-    # basically a straight line
-    for i in range(0, numPoints):
-        # bias feature
-        x[i][0] = 1
-        x[i][1] = realx[i]
-        # our target variable
-        #y[i] = (i + bias) + random.uniform(0, 1) * variance
-    return x, y
-
 #print 'Number of arguments:', len(sys.argv), 'arguments.'
 #print 'Argument List:', str(sys.argv)
 var1=sys.argv[1] if len(sys.argv) > 1 else "0"
