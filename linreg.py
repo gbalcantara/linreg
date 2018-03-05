@@ -19,7 +19,7 @@ def gradientDescent(x, y, th, eps, m, iteration):
 			#print('Cost:',cost)
 			gradient = np.dot(xTrans, loss) / m
 			th = th - eps * gradient
-			c=round(cost,6)
+			c=round(cost,2)
 			#print c
 		eps=eps+0.00001
 	return th, eps
@@ -60,6 +60,8 @@ m, n = np.shape(x)
 iteration = 5000
 eps = 0.000001
 th = np.ones(n)
+noise = np.random.uniform(-0.1,0.1,y.shape)
+y = y + noise
 th, eps = gradientDescent(x, y, th, eps, m, iteration)
 print 'learning rate=',eps
 xx0=th[0]
